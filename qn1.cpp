@@ -77,4 +77,16 @@ public:
     }
 };
 
+int main() {
+    Solution s;
 
+    vector<int> ranks1 = {4, 2, 3, 1};
+    int cars1 = 10;
+    cout << s.repairCars(ranks1, cars1) << endl;  // Output: 16
+
+    vector<int> ranks2 = {5, 1, 8};
+    int cars2 = 6;
+    cout << s.repairCars(ranks2, cars2) << endl;  // Output: 16
+
+    return 0;
+}
