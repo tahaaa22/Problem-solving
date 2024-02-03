@@ -16,10 +16,10 @@ public:
     int maxSubarraySumCircular(vector<int>& nums)
     {
         // first of all I need the max and min to get the cir
-        auto curmax = nums[0];
-        auto curmin = nums[0];
-        auto globmax = 0;
-        auto globmin = 0;
+        auto globmax = nums[0];
+        auto globmin = nums[0];
+        int curmax = 0;
+        int curmin = 0;
         int total = 0;
         for (int n : nums)
         {
@@ -30,10 +30,9 @@ public:
             globmin = min(curmin, globmin);
         }
         if (globmax >0)
-            return max(globmax, globmin);
+            return max(globmax, total - globmin);
         return globmax;
 
     }
 };
-
 
