@@ -40,9 +40,9 @@ using namespace std;
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // basic approach:
-    //to irritate over the array and give each mechanic a car to repair at time zero, 
-    //then irritate again at time 1 to check if there is a mechanic with rank 1 to give him another car,
-    // then irritate again at time two to check if there us a mechanic with rank 2 or less to give them cars, 
+    //to iterate over the array and give each mechanic a car to repair at time zero, 
+    //then iterate again at time 1 to check if there is a mechanic with rank 1 to give him another car,
+    // then iterate again at time two to check if there us a mechanic with rank 2 or less to give them cars, 
     //and subtract these number of cars from the total and stop looping until total number of cars become zero. 
 
 //efficient approach:
