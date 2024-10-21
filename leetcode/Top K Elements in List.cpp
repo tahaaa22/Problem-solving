@@ -2,39 +2,32 @@
 #include <iostream>
 using namespace std;
 #include <unordered_map>
-
-
 class Solution {
 public:
-    int numRescueBoats(vector<int>& people, int limit) {
-        int left, right, count = 0;
-        left =people[0];
-        right = people[0];
-        int size = people.size();
-        for(int i =0; i < size ; i++)
-        {
-            if(people[i] == limit)
-                count++;
-            for(int j = i; j < size; j++ )
-            {
-                if(people[i] == limit)
-                    count++;
-                if((people[i]+ people[j]) == limit)
-                {
-                    //people[i] = 0;
-                    //people[j] = 0;
-                    people.erase(people.begin() + i));
-                    //people.erase(people.begin() + j);
-                    cout<<"current start elements "<< *people.begin()<<endl;
-                    count++;
-                }
-
-            }
+    vector<int> topKFrequent(vector<int>& nums, int k) {
+        unordered_map<int, int> frequencyMap;
+        vector<int> result;
+        result.reserve(k);
+        // Count frequencies
+        for (int num : nums) {
+            frequencyMap[num]++;
         }
-        return count;
+        // Find the top K frequent elements
+        for (int i = 0; i < k; i++) {
+            int currentMaxFreq = 0;
+            int maxElement = 0;
+            for (auto& pair : frequencyMap) {
+                if (pair.second > currentMaxFreq) {
+                    currentMaxFreq = pair.second;
+                    maxElement = pair.first;
+                }
+            }
+            result.push_back(maxElement);
+            frequencyMap.erase(maxElement);
+        }
+        return result;
     }
 };
-
 int main()
 {
     Solution s;
