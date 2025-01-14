@@ -1,0 +1,22 @@
+vector<int> findThePrefixCommonArray(vector<int>& A, vector<int>& B) {
+
+    unordered_map<int, int>m;
+    int left =0, right=0;
+    vector <int> result;
+    for (int i = 0; i < A.size(); ++i)
+    {
+        int counter = 0;
+        m[A[i]]++;
+        m[B[i]]++;
+        for (auto current : m)
+        {
+            if (current.second > 1)
+                counter++;
+        }
+        result.push_back(counter);
+        
+    }
+    return result;
+
+
+}
