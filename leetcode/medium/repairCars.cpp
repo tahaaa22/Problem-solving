@@ -53,18 +53,15 @@ class Solution {
 public:
     long long repairCars(vector<int>& ranks, int cars) 
     {
-        int low = 0;
+        long long low = 1;
         long long high = ranks.back() * (long long)cars * cars, mid = 0;
-        int size = ranks.size();
-
-        sort(ranks.begin(), ranks.end());
         while (low < high)
         {
-            int car_num = 0;
-            mid = (low + (high - low)) / 2;
-            for (int i = 0; i < size; i++)
+            long long car_num = 0;
+            mid = (low + high) / 2;
+            for (int& current : ranks)
             {
-                car_num += sqrt(mid/ranks[i]);
+                car_num += sqrt( mid/ current);
             }
 
             if(car_num < cars)
