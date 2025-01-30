@@ -1,0 +1,21 @@
+##Approach one
+select max(Salary) as SecondHighestSalary
+from Employee
+where Salary <> (select  max(Salary) from Employee);
+
+
+##Approach two (using IFNULL)
+select IFNULL((Select distinct salary from Employee
+ order by salary desc
+ limit 1 offset 1), null) as SecondHighestSalary;
+
+##Approach three (nested queries)
+select max(Salary) as SecondHighestSalary
+from Employee 
+where Salary < (select max(Salary) from Employee);
+
+##Approach four using double select to handle null case
+select (select distinct Salary from Employee
+order by Salary desc
+limit 1 offset 1
+)as SecondHighestSalary;
